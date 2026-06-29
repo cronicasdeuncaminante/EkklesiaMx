@@ -1,0 +1,15 @@
+Cada página de EkklesiaMx tiene su propia atmósfera musical.
+Coloca aquí tus 5 archivos de audio con estos nombres EXACTOS:
+
+  inicio-tema.mp3       → suena en Inicio (tras aceptar el modal de bienvenida)
+  identidad-tema.mp3    → suena en Identidad
+  musica-tema.mp3       → suena en Música
+  palabra-tema.mp3      → suena en Palabra
+  comunidad-tema.mp3    → suena en Comunidad
+
+Si alguna pista no existe todavía, esa página simplemente no
+reproducirá audio (no se rompe nada) hasta que agregues el archivo.
+
+El botón flotante (esquina inferior derecha) enciende o apaga el
+audio de la página actual. La preferencia de silencio se recuerda
+en el navegador del visitante incluso al cambiar de página.

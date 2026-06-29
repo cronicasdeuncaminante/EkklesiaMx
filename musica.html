@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Música — EkklesiaMx</title>
+<meta name="description" content="Música que nutre el alma. Conecta con tu origen a través de canciones que acompañan tu fe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.page-hero{min-height:36vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:150px 24px 40px;overflow:hidden;}
+
+/* SPOTIFY PRINCIPAL — iframe oficial, carátula garantizada */
+.section-spotify{text-align:left;}
+.spotify-hero-layout{max-width:700px;margin-top:8px;}
+.spotify-embed-frame{border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.45);border:1px solid rgba(244,241,234,.08);}
+.spotify-embed-frame iframe{display:block;width:100%;border:0;}
+.spotify-hero-cta{margin-top:20px;}
+
+/* GRID MÚSICA — cada tarjeta es un iframe compacto oficial de Spotify */
+.section-musica .container{text-align:left;}
+.music-grid{display:flex;flex-direction:column;gap:14px;margin-top:44px;}
+.music-card-frame{border-radius:14px;overflow:hidden;border:1px solid rgba(244,241,234,.08);background:var(--navy);transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;}
+.music-card-frame:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,0,0,.35);border-color:rgba(254,126,60,.25);}
+.music-card-frame iframe{display:block;width:100%;height:80px;border:0;}
+
+/* YOUTUBE */
+.section-youtube{background:var(--pearl);text-align:left;overflow:hidden;}
+
+@media(max-width:760px){.music-grid{gap:12px;}}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- PESTAÑA-ÍNDICE EN LA ORILLA SUPERIOR -->
+<button id="indexPull" aria-label="Mostrar índice de secciones" data-hover></button>
+<nav id="indexPanel" aria-label="Índice de secciones">
+  <a href="index.html" class="index-panel-link">Inicio</a>
+  <a href="identidad.html" class="index-panel-link">Identidad</a>
+  <a href="musica.html" class="index-panel-link">Música</a>
+  <a href="palabra.html" class="index-panel-link">Palabra</a>
+  <a href="comunidad.html" class="index-panel-link">Comunidad</a>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay">
+  <nav class="menu-nav" role="navigation" aria-label="Menú principal">
+    <a href="index.html"><span class="menu-dot"></span>Inicio</a>
+    <a href="identidad.html"><span class="menu-dot"></span>Identidad</a>
+    <a href="musica.html"><span class="menu-dot"></span>Música</a>
+    <a href="palabra.html"><span class="menu-dot"></span>Palabra</a>
+    <a href="comunidad.html"><span class="menu-dot"></span>Comunidad</a>
+  </nav>
+</div>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-brand">Ekklesia <span class="brand-mx fire-gradient-text">Mx</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="identidad.html" class="nav-link">Identidad</a>
+    <a href="musica.html" class="nav-link">Música</a>
+    <a href="palabra.html" class="nav-link">Palabra</a>
+    <a href="comunidad.html" class="nav-link">Comunidad</a>
+  </div>
+  <div class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="fire-waves"><span class="fw3"></span></div>
+  <div class="container reveal">
+    <span class="eyebrow">Conecta con tu origen</span>
+    <h1 class="title-xl">Música que<br>nutre el alma.</h1>
+    <p class="body-text">Una selección de canciones que acompañan el proceso de descubrir tu identidad en Cristo.</p>
+  </div>
+</section>
+
+<!-- SPOTIFY PRINCIPAL -->
+<section class="section-spotify" id="spotify">
+  <div class="container reveal">
+    <span class="eyebrow">Escucha primero esta</span>
+    <div class="spotify-hero-layout">
+      <div class="spotify-embed-frame">
+        <iframe src="https://open.spotify.com/embed/track/3nOjFj0WWbsci9foo3o2tk?utm_source=oembed" height="152" style="min-height:152px;" frameborder="0" allowfullscreen loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Reproductor de Spotify — canción principal"></iframe>
+      </div>
+      <a href="https://open.spotify.com/intl-es/track/3nOjFj0WWbsci9foo3o2tk" target="_blank" rel="noopener" class="btn btn-spotify spotify-hero-cta">▶ Abrir en Spotify</a>
+    </div>
+  </div>
+</section>
+
+<!-- GRID MÚSICA -->
+<section class="section-musica" id="musica">
+  <div class="fire-waves" style="opacity:.4;"><span class="fw3"></span></div>
+  <div class="container reveal">
+    <span class="eyebrow">Para el camino</span>
+    <h2 class="title-lg">Una selección<br>completa.</h2>
+    <div class="music-grid" id="musicGrid"></div>
+  </div>
+</section>
+
+<!-- YOUTUBE -->
+<section class="section-youtube" id="youtube">
+  <div class="container reveal" style="position:relative;z-index:2;">
+    <span class="eyebrow">Profundiza en la Palabra</span>
+    <h2 class="title-lg">Ekklesia&nbsp;Mx<br>en YouTube</h2>
+    <p class="body-text" style="margin-bottom:32px;">Identidad · Fe · Discipulado.<br><br>Reflexiones desde el corazón de un hijo más de Dios que sigue aprendiendo, creciendo y compartiendo el evangelio como nos fue encomendado.</p>
+    <a href="https://youtube.com/@cronicasdeuncaminante-japm" target="_blank" rel="noopener" class="btn btn-red">▶ Visitar el canal en YouTube</a>
+  </div>
+</section>
+
+<footer>Ekklesia <span class="brand-mx fire-gradient-text">Mx</span> · «Mas a todos los que le recibieron, les dio potestad de ser hechos hijos de Dios.» — Juan 1:12</footer>
+
+<script>window.EKKLESIA_TRACK = { src:'audio/musica-tema.mp3', volume:0.16 };</script>
+<script src="assets/app.js"></script>
+<script>
+// Tarjetas de música: iframes oficiales de Spotify (compactos, height 80px).
+// La carátula, título y artista los renderiza Spotify directamente —
+// no depende de fetch ni de CORS, así que siempre se ve la portada real.
+const tracks = ['0llyb5ras72fMreXOD6dF6','1pBpi80veBX5asqtMMUiUs','3tJfmzbcaXsEy0sO8PojuG','0jmGfY8cZGG9Hgy1rbeGrz','18Bz4yDxHvSsGlDS3k5G5O','2fiipYqBHxBV2IA2Kk6qVq','02W84sfwDnnyDO4m3VsaTr','1MeYf9Z6Fr1XK74NoCMFHp','5zWO0RXbVaoOqgx9wUrY7O'];
+const grid = document.getElementById('musicGrid');
+tracks.forEach((id, i) => {
+  const wrap = document.createElement('div');
+  wrap.className = 'music-card-frame reveal' + (i % 3 === 1 ? ' reveal-left' : i % 3 === 2 ? ' reveal-right' : '');
+  wrap.dataset.once = 'false';
+  wrap.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${id}?utm_source=oembed" height="80" style="min-height:80px;" frameborder="0" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Reproductor de Spotify"></iframe>`;
+  grid.appendChild(wrap);
+});
+</script>
+</body>
+</html>

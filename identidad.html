@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quién Eres en Cristo? — EkklesiaMx</title>
+<meta name="description" content="Ocho verdades bíblicas que definen tu identidad real en Cristo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:150px 24px 50px;overflow:hidden;}
+.page-hero .container{width:100%;position:relative;z-index:2;}
+.page-hero-accent{position:absolute;top:-120px;right:-160px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(228,32,27,.25),transparent 70%);filter:blur(40px);pointer-events:none;}
+
+/* Sección 1: SOÑADO */
+.verses-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+.verse-card{background:var(--navy);border-radius:var(--radius-md);padding:30px 26px;border:1px solid rgba(244,241,234,.08);display:flex;flex-direction:column;gap:12px;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;}
+.verse-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.35);border-color:rgba(254,126,60,.3);}
+.verse-card .verse-text{font-size:clamp(14px,1.7vw,17px);}
+.verse-card-ref{font-family:'Inter',sans-serif;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--burnt);}
+.verse-card:nth-child(2){background:var(--pearl);}
+.verse-card:nth-child(2) .verse-card-ref{color:var(--lagoon);}
+.verse-card:nth-child(3){background:linear-gradient(135deg,var(--maroon),rgba(84,26,46,.5));}
+.verse-card:nth-child(3) .verse-card-ref{color:var(--peach);}
+
+/* Sección 2: RESCATE */
+.section-rescate{background:var(--pearl);overflow:hidden;}
+.rescate-bg-text{position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-family:'Anton',sans-serif;font-size:240px;color:var(--cream);opacity:.025;pointer-events:none;white-space:nowrap;text-transform:uppercase;}
+
+/* Sección 3: TARJETAS IDENTIDAD */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-top:48px;}
+.id-card{background:var(--navy);border-radius:var(--radius-md);padding:30px 24px;border:1px solid rgba(244,241,234,.08);transition:transform .35s var(--ease),box-shadow .3s,border-color .3s;position:relative;overflow:hidden;}
+.id-card::after{content:'Toca para leer';position:absolute;bottom:12px;right:16px;font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,234,.25);}
+.id-card:hover{transform:translateY(-8px);box-shadow:0 22px 48px rgba(0,0,0,.4);border-color:rgba(254,126,60,.35);}
+.id-card:nth-child(4n+2){background:var(--pearl);}
+.id-card:nth-child(4n+3){background:linear-gradient(150deg,var(--maroon),rgba(84,26,46,.4));}
+.id-card:nth-child(4n){background:linear-gradient(150deg,var(--lagoon),rgba(14,104,115,.35));}
+.id-card:nth-child(4n+1){background:linear-gradient(150deg,var(--copper),rgba(97,65,60,.5));}
+.id-card-num{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:rgba(254,126,60,.7);letter-spacing:.1em;margin-bottom:14px;display:block;}
+.id-card-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:19px;color:var(--cream);margin-bottom:8px;letter-spacing:0;}
+.id-card-verse{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--peach);}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(10,8,12,.78);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{background:var(--navy);border-radius:24px;max-width:480px;width:100%;padding:48px 40px;position:relative;transform:scale(.92) translateY(16px);transition:transform .3s var(--ease);border:1px solid rgba(254,126,60,.15);}
+.modal-overlay.open .modal-box{transform:scale(1) translateY(0);}
+.modal-close{position:absolute;top:20px;right:20px;width:36px;height:36px;border-radius:50%;background:rgba(244,241,234,.08);border:none;font-size:16px;color:var(--cream);display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;}
+.modal-close:hover{background:rgba(254,126,60,.2);transform:rotate(90deg);}
+.modal-icon-num{font-family:'Inter',sans-serif;font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--burnt);margin-bottom:14px;display:block;text-transform:uppercase;}
+.modal-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:28px;color:var(--cream);margin-bottom:6px;}
+.modal-ref{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--peach);margin-bottom:24px;display:block;}
+.modal-verse{font-family:'Fraunces',serif;font-style:italic;font-size:21px;line-height:1.6;color:var(--cream);margin-bottom:20px;padding:20px 24px;background:rgba(254,126,60,.07);border-left:2px solid var(--burnt);border-radius:4px var(--radius-md) var(--radius-md) 4px;}
+.modal-reflection{font-family:'Inter',sans-serif;font-size:14px;font-weight:400;line-height:1.7;color:rgba(244,241,234,.65);}
+
+@media(max-width:760px){.verses-row{grid-template-columns:1fr;}.cards-grid{grid-template-columns:1fr 1fr;}.rescate-bg-text{display:none;}}
+@media(max-width:480px){.cards-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- PESTAÑA-ÍNDICE EN LA ORILLA SUPERIOR -->
+<button id="indexPull" aria-label="Mostrar índice de secciones" data-hover></button>
+<nav id="indexPanel" aria-label="Índice de secciones">
+  <a href="index.html" class="index-panel-link">Inicio</a>
+  <a href="identidad.html" class="index-panel-link">Identidad</a>
+  <a href="musica.html" class="index-panel-link">Música</a>
+  <a href="palabra.html" class="index-panel-link">Palabra</a>
+  <a href="comunidad.html" class="index-panel-link">Comunidad</a>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay">
+  <nav class="menu-nav" role="navigation" aria-label="Menú principal">
+    <a href="index.html"><span class="menu-dot"></span>Inicio</a>
+    <a href="identidad.html"><span class="menu-dot"></span>Identidad</a>
+    <a href="musica.html"><span class="menu-dot"></span>Música</a>
+    <a href="palabra.html"><span class="menu-dot"></span>Palabra</a>
+    <a href="comunidad.html"><span class="menu-dot"></span>Comunidad</a>
+  </nav>
+</div>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-brand">Ekklesia <span class="brand-mx fire-gradient-text">Mx</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="identidad.html" class="nav-link">Identidad</a>
+    <a href="musica.html" class="nav-link">Música</a>
+    <a href="palabra.html" class="nav-link">Palabra</a>
+    <a href="comunidad.html" class="nav-link">Comunidad</a>
+  </div>
+  <div class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="fire-waves"><span class="fw3"></span></div>
+  <div class="container reveal">
+    <span class="eyebrow">Identidad en Cristo</span>
+    <h1 class="title-xl">¿Quién eres<br>en Cristo?</h1>
+    <p class="body-text">Ocho verdades bíblicas que definen tu identidad real — toca cada una para descubrir lo que Dios dice de ti.</p>
+  </div>
+</section>
+
+<!-- FUISTE SOÑADO -->
+<section id="sonado">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Antes de nacer, ya eras conocido</span>
+      <h2 class="title-lg">Fuiste soñado<br>por Dios.</h2>
+      <p class="body-text">No eres un accidente. No eres producto del azar. No llegaste tarde a la historia. Fuiste pensado, amado y diseñado por Dios antes de nacer.</p>
+    </div>
+    <div class="verses-row">
+      <div class="verse-card reveal-left" data-once="false"><p class="verse-text">«Antes que te formara en el vientre te conocí, y antes que nacieras te santifiqué.»</p><span class="verse-card-ref">Jeremías 1:5</span></div>
+      <div class="verse-card reveal-scale" data-once="false"><p class="verse-text">«Nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él.»</p><span class="verse-card-ref">Efesios 1:4</span></div>
+      <div class="verse-card reveal-right" data-once="false"><p class="verse-text">«Porque tú formaste mis entrañas; tú me hiciste en el vientre de mi madre.»</p><span class="verse-card-ref">Salmo 139:13–14</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESCATE -->
+<section class="section-rescate" id="rescate">
+  <div class="fire-waves" style="opacity:.45;"><span class="fw3"></span></div>
+  <div class="rescate-bg-text">CRUZ</div>
+  <div class="container reveal">
+    <span class="eyebrow">La cruz te restaura</span>
+    <h2 class="title-lg">La cruz no solo<br>te perdona.<br><span class="accent">Te restaura.</span></h2>
+    <p class="body-text" style="margin-bottom:8px;">El pecado distorsionó tu propósito. Cristo pagó el precio para restaurarte. En Jesús no solo eres perdonado; eres reconciliado, adoptado y amado.</p>
+    <div class="verse-block reveal-glow" data-once="false"><p class="verse-text">«Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros.»</p><span class="verse-ref">Romanos 5:8</span></div>
+    <div class="verse-block reveal-glow reveal-delay-2" data-once="false" style="border-left-color:var(--lagoon);background:rgba(14,104,115,.08);"><p class="verse-text">«El cual nos ha librado de la potestad de las tinieblas, y trasladado al reino de su amado Hijo, en quien tenemos redención por su sangre, el perdón de pecados.»</p><span class="verse-ref" style="color:var(--lagoon);">Colosenses 1:13–14</span></div>
+  </div>
+</section>
+
+<!-- 8 TARJETAS -->
+<section id="ocho-verdades">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Ocho verdades</span>
+      <h2 class="title-lg">Esto es lo que<br>Dios dice de ti.</h2>
+    </div>
+    <div class="cards-grid">
+      <div class="id-card reveal-clip" data-card="hijo"><span class="id-card-num">01</span><div class="id-card-title">Hijo de Dios</div><div class="id-card-verse">Juan 1:12</div></div>
+      <div class="id-card reveal-clip reveal-delay-1" data-card="nueva"><span class="id-card-num">02</span><div class="id-card-title">Nueva Creación</div><div class="id-card-verse">2 Cor 5:17</div></div>
+      <div class="id-card reveal-clip reveal-delay-2" data-card="escogido"><span class="id-card-num">03</span><div class="id-card-title">Escogido</div><div class="id-card-verse">Efesios 1:4</div></div>
+      <div class="id-card reveal-clip reveal-delay-3" data-card="perdonado"><span class="id-card-num">04</span><div class="id-card-title">Perdonado</div><div class="id-card-verse">Efesios 1:7</div></div>
+      <div class="id-card reveal-clip" data-card="libre"><span class="id-card-num">05</span><div class="id-card-title">Libre</div><div class="id-card-verse">Juan 8:36</div></div>
+      <div class="id-card reveal-clip reveal-delay-1" data-card="heredero"><span class="id-card-num">06</span><div class="id-card-title">Heredero de Dios</div><div class="id-card-verse">Romanos 8:17</div></div>
+      <div class="id-card reveal-clip reveal-delay-2" data-card="amado"><span class="id-card-num">07</span><div class="id-card-title">Amado</div><div class="id-card-verse">Romanos 5:8</div></div>
+      <div class="id-card reveal-clip reveal-delay-3" data-card="sellado"><span class="id-card-num">08</span><div class="id-card-title">Sellado por el Espíritu</div><div class="id-card-verse">Efesios 1:13</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>Ekklesia <span class="brand-mx fire-gradient-text">Mx</span> · «Mas a todos los que le recibieron, les dio potestad de ser hechos hijos de Dios.» — Juan 1:12</footer>
+
+<!-- MODAL VERSÍCULOS -->
+<div class="modal-overlay" id="verseModal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+    <span class="modal-icon-num" id="modalNum"></span>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <span class="modal-ref" id="modalRef"></span>
+    <blockquote class="modal-verse" id="modalVerse"></blockquote>
+    <p class="modal-reflection" id="modalReflection"></p>
+  </div>
+</div>
+
+<script>window.EKKLESIA_TRACK = { src:'audio/identidad-tema.mp3', volume:0.18 };</script>
+<script src="assets/app.js"></script>
+<script>
+const verseData = {
+  hijo:     {num:'01',title:'Hijo de Dios',           ref:'Juan 1:12',        verse:'«Mas a todos los que le recibieron, a los que creen en su nombre, les dio potestad de ser hechos hijos de Dios.»', reflection:'No eres un huérfano espiritual. Por la fe en Cristo, Dios te adopta plenamente en su familia. Su amor paternal hacia ti es eterno, real y sin condiciones.'},
+  nueva:    {num:'02',title:'Nueva Creación',         ref:'2 Corintios 5:17', verse:'«De modo que si alguno está en Cristo, nueva criatura es; las cosas viejas pasaron; he aquí todas son hechas nuevas.»', reflection:'Tu pasado no define tu futuro. En Cristo no eres una versión mejorada — eres completamente nuevo. La historia vieja quedó atrás; la nueva comienza hoy.'},
+  escogido: {num:'03',title:'Escogido',               ref:'Efesios 1:4',      verse:'«Según nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él.»', reflection:'Antes de que el universo existiera, Dios ya te había elegido. No eres una ocurrencia de último momento — eres una decisión eterna del corazón de Dios.'},
+  perdonado:{num:'04',title:'Perdonado',              ref:'Efesios 1:7',      verse:'«En quien tenemos redención por su sangre, el perdón de pecados según las riquezas de su gracia.»', reflection:'El perdón que Dios ofrece no es a medias. Es completo, abundante, derramado con toda la riqueza de su gracia. Lo que Cristo pagó en la cruz fue suficiente — para siempre.'},
+  libre:    {num:'05',title:'Libre',                 ref:'Juan 8:36',        verse:'«Así que, si el Hijo os libertare, seréis verdaderamente libres.»', reflection:'La libertad que Cristo da no es temporal ni condicionada. Es libertad profunda del alma: libre del miedo, de la culpa, de la esclavitud al pecado. Verdaderamente libre.'},
+  heredero: {num:'06',title:'Heredero de Dios',      ref:'Romanos 8:17',     verse:'«Y si hijos, también herederos; herederos de Dios y coherederos con Cristo.»', reflection:'No solo eres hijo de Dios — eres su heredero. Todo lo que Cristo posee, lo comparte contigo. Tu herencia es eterna, incorruptible y guardada en el cielo.'},
+  amado:    {num:'07',title:'Amado',                  ref:'Romanos 5:8',      verse:'«Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros.»', reflection:'Dios no esperó a que lo merecieras. Te amó en tu peor momento, en tu punto más oscuro. Eso es lo que hace su amor tan extraordinario — no depende de ti, depende de Él.'},
+  sellado:  {num:'08',title:'Sellado por el Espíritu',ref:'Efesios 1:13',     verse:'«Habiendo oído la palabra de verdad, el evangelio de vuestra salvación, y habiendo creído en él, fuisteis sellados con el Espíritu Santo de la promesa.»', reflection:'El Espíritu Santo dentro de ti es la garantía de Dios. Su presencia en tu vida es el sello que confirma que perteneces a Él. No puedes perder lo que Dios mismo garantiza.'}
+};
+const modal = document.getElementById('verseModal');
+function openModal(key){
+  const d = verseData[key]; if (!d) return;
+  document.getElementById('modalNum').textContent = d.num;
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalRef').textContent = d.ref;
+  document.getElementById('modalVerse').textContent = d.verse;
+  document.getElementById('modalReflection').textContent = d.reflection;
+  modal.classList.add('open'); document.body.style.overflow = 'hidden';
+}
+function closeModal(){ modal.classList.remove('open'); document.body.style.overflow = ''; }
+document.querySelectorAll('.id-card[data-card]').forEach(c => c.addEventListener('click', () => openModal(c.dataset.card)));
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>

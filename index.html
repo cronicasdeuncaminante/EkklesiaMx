@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EkklesiaMx — ¿Quién Eres?</title>
+<meta name="description" content="EkklesiaMx — Reunión de Discípulos. Descubre tu identidad en Cristo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+/* ── HERO ── */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 100px;overflow:hidden;}
+.hero-content{position:relative;z-index:2;}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--peach);opacity:.85;margin-bottom:26px;animation:fadeUp .8s ease both;}
+.hero-title{font-size:clamp(64px,17vw,168px);color:var(--cream);letter-spacing:-.01em;margin-bottom:8px;animation:fadeUp .8s .08s ease both;}
+.hero-title .x{color:var(--burnt);}
+.hero-sub{font-size:clamp(14px,2.2vw,17px);font-weight:600;text-transform:uppercase;letter-spacing:.06em;line-height:1.6;color:rgba(244,241,234,.75);max-width:560px;margin:0 auto 18px;animation:fadeUp .8s .2s ease both;}
+.hero-verse{font-size:clamp(16px,2.3vw,20px);color:var(--peach);opacity:.85;max-width:520px;margin:0 auto 50px;line-height:1.55;animation:fadeUp .8s .28s ease both;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .36s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── ÍNDICE / BUSCADOR (lista larga, hover ilumina) ── */
+.index-section{background:var(--ink);padding-top:60px;position:relative;overflow:hidden;}
+.index-head{margin-bottom:56px;position:relative;z-index:2;}
+.index-list{display:flex;flex-direction:column;position:relative;z-index:2;}
+.index-row{position:relative;display:block;text-decoration:none;border-top:1px solid rgba(244,241,234,.1);overflow:hidden;}
+.index-link{
+  display:flex;align-items:center;gap:28px;padding:30px 4px;position:relative;z-index:2;
+  transition:padding .4s var(--ease);
+}
+.index-bars{display:flex;gap:4px;flex-shrink:0;width:34px;}
+.index-bars span{display:block;width:4px;height:30px;border-radius:3px;background:var(--slate);transition:background .4s var(--ease),height .4s var(--ease),box-shadow .4s var(--ease);}
+.index-bars span:nth-child(1){background:var(--lagoon);}
+.index-bars span:nth-child(2){background:var(--burnt);}
+.index-bars span:nth-child(3){background:var(--lust);}
+.index-num{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;color:rgba(244,241,234,.35);flex-shrink:0;width:30px;}
+.index-word{
+  font-family:'Anton',sans-serif;text-transform:uppercase;
+  font-size:clamp(28px,5vw,56px);color:var(--cream);letter-spacing:.01em;
+  transition:transform .45s var(--ease), filter .45s var(--ease), color .3s var(--ease);
+  transform-origin:left center;position:relative;
+  filter:drop-shadow(0 0 0 transparent);
+}
+.index-desc{
+  margin-left:auto;font-family:'Inter',sans-serif;font-size:13px;line-height:1.5;color:rgba(244,241,234,.45);
+  max-width:320px;text-align:right;opacity:0;transform:translateX(8px);transition:opacity .35s,transform .35s;
+  display:none;
+}
+.index-row .ver-mas{display:none;flex-shrink:0;margin:0;opacity:0;transform:translateX(8px);transition:opacity .35s,transform .35s;}
+@media(min-width:761px){.index-desc{display:block;}.index-row .ver-mas{display:inline-flex;}}
+.index-row:hover .index-bars span{height:46px;}
+.index-row:hover .index-bars span:nth-child(1){box-shadow:0 0 14px 2px rgba(14,104,115,.7);}
+.index-row:hover .index-bars span:nth-child(2){box-shadow:0 0 14px 2px rgba(254,126,60,.7);}
+.index-row:hover .index-bars span:nth-child(3){box-shadow:0 0 14px 2px rgba(228,32,27,.7);}
+.index-row:hover .index-word{
+  transform:scale(1.16) translateX(10px);
+  color:var(--ink);
+  filter:drop-shadow(0 0 14px rgba(254,126,60,.85)) drop-shadow(0 0 30px rgba(228,32,27,.5)) drop-shadow(0 0 4px rgba(244,241,234,.9));
+}
+.index-row:hover .index-desc{opacity:0;}
+.index-row:hover .ver-mas{opacity:1;transform:translateX(0);}
+.index-row:hover .index-link{padding-left:14px;}
+.index-row::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(254,126,60,.07),transparent 70%);opacity:0;transition:opacity .4s var(--ease);z-index:1;}
+.index-row:hover::after{opacity:1;}
+.index-list .index-row:last-child{border-bottom:1px solid rgba(244,241,234,.1);}
+
+/* ── INTRO BLOCK debajo del índice ── */
+.intro-block{padding-top:0;}
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start;}
+.intro-quote{font-size:clamp(20px,2.6vw,28px);line-height:1.5;color:var(--cream);}
+.intro-quote .ref{display:block;margin-top:18px;font-family:'Inter',sans-serif;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--burnt);}
+.intro-side p{margin-bottom:18px;}
+
+@media(max-width:760px){
+  .index-link{gap:16px;padding:22px 4px;}
+  .index-num{display:none;}
+  .intro-grid{grid-template-columns:1fr;gap:32px;}
+}
+
+/* ── MODAL IDENTIDAD (bienvenida + audio) ── */
+#modal-identidad{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:rgba(10,8,12,0.97);backdrop-filter:blur(14px);transition:opacity .6s ease,visibility .6s ease;}
+#modal-identidad.modal-oculto{opacity:0;visibility:hidden;pointer-events:none;}
+.modal-identidad-box{text-align:center;max-width:520px;padding:48px 40px;position:relative;z-index:2;}
+.modal-identidad-orb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle, rgba(254,126,60,.25), rgba(14,104,115,.18) 55%, transparent 75%);
+  filter:blur(50px);animation:orbPulse 6s ease-in-out infinite alternate;pointer-events:none;}
+@keyframes orbPulse{0%{transform:translate(-50%,-50%) scale(1);}100%{transform:translate(-50%,-50%) scale(1.15);}}
+.modal-identidad-cross{font-size:30px;margin-bottom:22px;display:block;color:var(--burnt);}
+.modal-identidad-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(26px,5vw,40px);color:#fff;line-height:1.05;margin-bottom:22px;}
+.modal-identidad-verse{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.4vw,21px);color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:12px;}
+.modal-identidad-ref{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--peach);margin-bottom:40px;display:block;}
+#btn-comenzar-viaje{background:var(--burnt);color:var(--ink);border:none;border-radius:50px;padding:16px 44px;font-family:'Inter',sans-serif;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;transition:transform .25s var(--ease),box-shadow .25s;}
+#btn-comenzar-viaje:hover{transform:scale(1.05) translateY(-2px);box-shadow:0 16px 44px rgba(254,126,60,.35);}
+.modal-skip{display:block;margin-top:20px;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(244,241,234,0.3);background:none;border:none;}
+.modal-skip:hover{color:rgba(244,241,234,0.6);}
+</style>
+</head>
+<body>
+
+<!-- MODAL: BIENVENIDA -->
+<div id="modal-identidad" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-identidad-box">
+    <div class="modal-identidad-orb"></div>
+    <span class="modal-identidad-cross">✝</span>
+    <h2 class="modal-identidad-title" id="modal-title">¿Estás listo para conocer<br>tu identidad?</h2>
+    <p class="modal-identidad-verse">«En esto consiste el amor: no en que nosotros hayamos amado a Dios, sino en que él nos amó a nosotros, y envió a su Hijo en propiciación por nuestros pecados.»</p>
+    <span class="modal-identidad-ref">1 Juan 4:10</span>
+    <button id="btn-comenzar-viaje">Sí, estoy listo ✝</button>
+    <button class="modal-skip" id="btn-skip">Continuar sin audio</button>
+  </div>
+  <audio id="musica-fondo" loop preload="none">
+    <source src="audio/inicio-tema.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<div id="progress-bar"></div>
+
+<!-- PESTAÑA-ÍNDICE EN LA ORILLA SUPERIOR -->
+<button id="indexPull" aria-label="Mostrar índice de secciones" data-hover></button>
+<nav id="indexPanel" aria-label="Índice de secciones">
+  <a href="index.html" class="index-panel-link">Inicio</a>
+  <a href="identidad.html" class="index-panel-link">Identidad</a>
+  <a href="musica.html" class="index-panel-link">Música</a>
+  <a href="palabra.html" class="index-panel-link">Palabra</a>
+  <a href="comunidad.html" class="index-panel-link">Comunidad</a>
+</nav>
+
+<!-- MENU OVERLAY (mobile) -->
+<div class="menu-overlay" id="menuOverlay">
+  <nav class="menu-nav" role="navigation" aria-label="Menú principal">
+    <a href="index.html"><span class="menu-dot"></span>Inicio</a>
+    <a href="identidad.html"><span class="menu-dot"></span>Identidad</a>
+    <a href="musica.html"><span class="menu-dot"></span>Música</a>
+    <a href="palabra.html"><span class="menu-dot"></span>Palabra</a>
+    <a href="comunidad.html"><span class="menu-dot"></span>Comunidad</a>
+  </nav>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-brand">Ekklesia <span class="brand-mx fire-gradient-text">Mx</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="identidad.html" class="nav-link">Identidad</a>
+    <a href="musica.html" class="nav-link">Música</a>
+    <a href="palabra.html" class="nav-link">Palabra</a>
+    <a href="comunidad.html" class="nav-link">Comunidad</a>
+  </div>
+  <div class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="fire-waves"><span class="fw3"></span></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal">Ekklesia&nbsp;Mx&nbsp;·&nbsp;Reunión&nbsp;de&nbsp;Discípulos</p>
+    <h1 class="hero-title">¿Quién <span class="x">Eres</span>?</h1>
+    <p class="hero-sub">Eres el sueño eterno de Dios<br>y el rescate perfecto de Cristo.</p>
+    <p class="hero-verse">«Tu verdadera identidad comenzó antes de la fundación del mundo y quedó sellada para siempre en la cruz.»</p>
+    <div class="hero-ctas">
+      <a href="https://open.spotify.com/intl-es/track/3nOjFj0WWbsci9foo3o2tk" target="_blank" rel="noopener" class="btn btn-primary">▶ Escuchar en Spotify</a>
+      <a href="identidad.html" class="btn btn-outline">✝ Descubrir mi identidad</a>
+    </div>
+  </div>
+</section>
+
+<!-- ÍNDICE -->
+<section class="index-section" id="indice">
+  <div class="fire-waves" style="opacity:.5;"><span class="fw3"></span></div>
+  <div class="container">
+    <div class="index-head reveal">
+      <span class="eyebrow">Explora Ekklesia&nbsp;Mx</span>
+      <h2 class="title-lg">El camino tiene<br>varias paradas.</h2>
+    </div>
+    <div class="index-list reveal">
+      <a href="identidad.html" class="index-row">
+        <span class="index-link">
+          <span class="index-bars"><span></span><span></span><span></span></span>
+          <span class="index-num">01</span>
+          <span class="index-word">Identidad</span>
+          <span class="index-desc">Antes de que existiera el mundo, Dios ya te había soñado. Aquí descubres las verdades que la cruz selló sobre quién eres.</span>
+          <span class="ver-mas">Ver más <span class="arrow">→</span></span>
+        </span>
+      </a>
+      <a href="musica.html" class="index-row">
+        <span class="index-link">
+          <span class="index-bars"><span></span><span></span><span></span></span>
+          <span class="index-num">02</span>
+          <span class="index-word">Música</span>
+          <span class="index-desc">La música nutre el alma y nos alinea con una realidad constante de adoración — cantos que declaran quién es Dios cuando todo lo demás calla.</span>
+          <span class="ver-mas">Ver más <span class="arrow">→</span></span>
+        </span>
+      </a>
+      <a href="palabra.html" class="index-row">
+        <span class="index-link">
+          <span class="index-bars"><span></span><span></span><span></span></span>
+          <span class="index-num">03</span>
+          <span class="index-word">Palabra</span>
+          <span class="index-desc">La Palabra no es un libro más en el estante — es la voz de Dios que sigue hablando hoy, tan viva y cortante como el primer día.</span>
+          <span class="ver-mas">Ver más <span class="arrow">→</span></span>
+        </span>
+      </a>
+      <a href="comunidad.html" class="index-row">
+        <span class="index-link">
+          <span class="index-bars"><span></span><span></span><span></span></span>
+          <span class="index-num">04</span>
+          <span class="index-word">Comunidad</span>
+          <span class="index-desc">Nadie crece solo en la fe. Aquí encuentras caminantes reales, hambrientos de Dios, que oran, fallan y se levantan juntos contigo.</span>
+          <span class="ver-mas">Ver más <span class="arrow">→</span></span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO / QUIÉN SOY breve -->
+<section class="intro-block" id="quien-soy">
+  <div class="container">
+    <div class="intro-grid reveal">
+      <div class="reveal-left" data-once="false">
+        <span class="eyebrow">Una nota personal</span>
+        <p class="intro-quote">No vengo con títulos ni credenciales religiosas. Soy un hijo más de Dios, redimido a través de Cristo, que sigue aprendiendo, fallando y levantándose.<span class="ref">— No soy teólogo, soy caminante.</span></p>
+      </div>
+      <div class="intro-side body-text reveal-right" data-once="false">
+        <p>Lo único que me mueve es lo que Jesús mismo nos encargó: <em>«Id y haced discípulos a todas las naciones.»</em></p>
+        <p>Este espacio no es de un experto — es de un caminante que encontró el Camino y quiere que tú también lo encuentres.</p>
+        <a href="comunidad.html" class="ver-mas">Conoce la comunidad <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Ekklesia <span class="brand-mx fire-gradient-text">Mx</span> · «Mas a todos los que le recibieron, les dio potestad de ser hechos hijos de Dios.» — Juan 1:12</footer>
+
+<script>window.EKKLESIA_TRACK = { useExisting:'musica-fondo' };</script>
+<script src="assets/app.js"></script>
+<script>
+// ── MODAL IDENTIDAD + AUDIO ──
+(function(){
+  const modal   = document.getElementById('modal-identidad');
+  const btnPlay = document.getElementById('btn-comenzar-viaje');
+  const btnSkip = document.getElementById('btn-skip');
+  const audio   = document.getElementById('musica-fondo');
+  if (audio) audio.volume = 0.20;
+  function cerrarModal(reproducir){
+    modal.classList.add('modal-oculto');
+    document.body.style.overflow = '';
+    if (reproducir && audio) audio.play().catch(err => console.warn('Audio bloqueado:', err));
+  }
+  document.body.style.overflow = 'hidden';
+  if (btnPlay) btnPlay.addEventListener('click', () => cerrarModal(true));
+  if (btnSkip) btnSkip.addEventListener('click', () => cerrarModal(false));
+})();
+</script>
+</body>
+</html>

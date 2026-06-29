@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Palabra de Dios — EkklesiaMx</title>
+<meta name="description" content="La Biblia, espada de doble filo. Ediciones físicas, lectura online y la app YouVersion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.page-hero{min-height:36vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:150px 24px 40px;overflow:hidden;background:var(--pearl);}
+.page-hero-accent{position:absolute;top:-100px;right:-140px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(254,126,60,.2),transparent 70%);filter:blur(40px);pointer-events:none;}
+
+.section-palabra{background:var(--pearl);position:relative;overflow:hidden;}
+.palabra-glow{position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,var(--burnt) 0%,transparent 70%);opacity:.1;pointer-events:none;}
+.palabra-glow-2{position:absolute;bottom:-100px;left:-60px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,var(--lagoon) 0%,transparent 70%);opacity:.12;pointer-events:none;}
+.palabra-verse-hero{max-width:680px;margin:36px 0;padding:32px 36px;background:rgba(244,241,234,.05);border:1px solid rgba(244,241,234,.12);border-radius:var(--radius-md);transition:background .3s;}
+.palabra-verse-hero:hover{background:rgba(244,241,234,.08);}
+.palabra-verse-hero .verse-text{color:var(--cream);font-size:clamp(17px,2.5vw,22px);}
+.palabra-verse-hero .verse-ref{color:var(--peach);margin-top:10px;display:block;}
+.bibles-header{display:flex;align-items:center;gap:14px;margin:48px 0 20px;}
+.bible-hero-icon{flex-shrink:0;filter:drop-shadow(0 0 10px rgba(254,126,60,.3));}
+.bibles-intro{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--peach);margin:0;}
+.bibles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;}
+.bible-card{background:rgba(244,241,234,.04);border:1px solid rgba(244,241,234,.1);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:16px;text-decoration:none;transition:background .2s,transform .25s,border-color .25s;}
+.bible-card:hover{background:rgba(244,241,234,.08);transform:translateX(6px);border-color:rgba(254,126,60,.3);}
+.bible-card-icon{flex-shrink:0;color:var(--peach);transition:color .25s;}
+.bible-card:hover .bible-card-icon{color:var(--burnt);}
+.bible-card-text{flex:1;min-width:0;}
+.bible-card-title{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:var(--cream);line-height:1.35;margin-bottom:3px;}
+.bible-card-store{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--peach);opacity:.85;}
+.bible-card-arrow{color:var(--cream);opacity:.3;font-size:18px;flex-shrink:0;transition:transform .2s,opacity .2s;}
+.bible-card:hover .bible-card-arrow{opacity:.9;transform:translateX(4px);color:var(--burnt);}
+.online-reading-card{margin-top:24px;background:linear-gradient(135deg,rgba(254,126,60,.13),rgba(228,32,27,.08));border:1px solid rgba(254,126,60,.25);border-radius:var(--radius-md);padding:32px 36px;display:flex;align-items:center;gap:28px;transition:background .3s;}
+.online-reading-card:hover{background:linear-gradient(135deg,rgba(254,126,60,.2),rgba(228,32,27,.13));}
+.online-reading-icon{width:54px;height:54px;border-radius:50%;background:rgba(254,126,60,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.online-reading-icon svg{width:24px;height:24px;stroke:var(--burnt);}
+.online-reading-text h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:20px;color:var(--cream);margin-bottom:8px;}
+.online-reading-text p{font-family:'Inter',sans-serif;font-size:14px;font-weight:400;line-height:1.6;color:rgba(244,241,234,.7);margin-bottom:20px;}
+.app-section{margin-top:56px;padding-top:40px;border-top:1px solid rgba(244,241,234,.1);}
+.app-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:22px;color:var(--cream);margin-bottom:10px;}
+.app-sub{font-family:'Inter',sans-serif;font-size:14px;font-weight:400;line-height:1.6;color:rgba(244,241,234,.65);max-width:560px;margin-bottom:28px;}
+.app-buttons{display:flex;gap:14px;flex-wrap:wrap;}
+.app-btn{display:inline-flex;align-items:center;gap:12px;padding:14px 24px;border-radius:14px;text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s;}
+.app-btn:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.4);}
+.app-btn-ios{background:#000;color:#fff;border:1px solid rgba(244,241,234,.15);}
+.app-btn-android{background:#3DDC84;color:#06200f;}
+.app-btn-icon{width:22px;height:22px;}
+.app-btn-label{display:flex;flex-direction:column;line-height:1.2;}
+.app-btn-small{font-family:'Inter',sans-serif;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;opacity:.7;}
+.app-btn-name{font-family:'Inter',sans-serif;font-size:15px;font-weight:800;}
+
+@media(max-width:760px){.online-reading-card{flex-direction:column;text-align:center;}.app-buttons{justify-content:center;}}
+@media(max-width:480px){.bibles-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- PESTAÑA-ÍNDICE EN LA ORILLA SUPERIOR -->
+<button id="indexPull" aria-label="Mostrar índice de secciones" data-hover></button>
+<nav id="indexPanel" aria-label="Índice de secciones">
+  <a href="index.html" class="index-panel-link">Inicio</a>
+  <a href="identidad.html" class="index-panel-link">Identidad</a>
+  <a href="musica.html" class="index-panel-link">Música</a>
+  <a href="palabra.html" class="index-panel-link">Palabra</a>
+  <a href="comunidad.html" class="index-panel-link">Comunidad</a>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay">
+  <nav class="menu-nav" role="navigation" aria-label="Menú principal">
+    <a href="index.html"><span class="menu-dot"></span>Inicio</a>
+    <a href="identidad.html"><span class="menu-dot"></span>Identidad</a>
+    <a href="musica.html"><span class="menu-dot"></span>Música</a>
+    <a href="palabra.html"><span class="menu-dot"></span>Palabra</a>
+    <a href="comunidad.html"><span class="menu-dot"></span>Comunidad</a>
+  </nav>
+</div>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-brand">Ekklesia <span class="brand-mx fire-gradient-text">Mx</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="identidad.html" class="nav-link">Identidad</a>
+    <a href="musica.html" class="nav-link">Música</a>
+    <a href="palabra.html" class="nav-link">Palabra</a>
+    <a href="comunidad.html" class="nav-link">Comunidad</a>
+  </div>
+  <div class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="fire-waves"><span class="fw3"></span></div>
+  <div class="container reveal">
+    <span class="eyebrow">Tu herramienta más poderosa</span>
+    <h1 class="title-xl">La Palabra de Dios:<br><span class="accent">espada de doble filo.</span></h1>
+  </div>
+</section>
+
+<section class="section-palabra" id="palabra">
+  <div class="fire-waves" style="opacity:.5;"><span class="fw3"></span></div>
+  <div class="palabra-glow"></div><div class="palabra-glow-2"></div>
+  <div class="container reveal" style="position:relative;z-index:2;">
+    <p class="body-text">La Biblia no es solo un libro antiguo — es la voz viva de Dios que habla directamente al alma. Antes de leer, pide al Espíritu Santo que dirija tu corazón y tu entendimiento.</p>
+    <div class="palabra-verse-hero reveal-glow" data-once="false">
+      <p class="verse-text">«Porque la palabra de Dios es viva y eficaz, y más cortante que toda espada de dos filos; y penetra hasta partir el alma y el espíritu, las coyunturas y los tuétanos, y discierne los pensamientos y las intenciones del corazón.»</p>
+      <span class="verse-ref">Hebreos 4:12</span>
+    </div>
+
+    <div class="bibles-header reveal">
+      <svg class="bible-hero-icon" viewBox="0 0 64 48" width="46" height="35" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 8C27 4 18 2 4 3v34c14-1 23 1 28 5 5-4 14-6 28-5V3c-14-1-23 1-28 5z" fill="none" stroke="var(--peach)" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M32 8v34" stroke="var(--peach)" stroke-width="2"/>
+        <path d="M32 14l0 10M27 19l10 0" stroke="var(--burnt)" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <p class="bibles-intro">Consigue tu Biblia NTV — Nueva Traducción Viviente</p>
+    </div>
+    <div class="bibles-grid reveal reveal-delay-1">
+      <a href="https://www.amazon.com.mx" target="_blank" rel="noopener" class="bible-card"><svg class="bible-card-icon" viewBox="0 0 64 48" width="20" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M32 8C27 4 18 2 4 3v34c14-1 23 1 28 5 5-4 14-6 28-5V3c-14-1-23 1-28 5z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M32 8v34" stroke="currentColor" stroke-width="3"/></svg><div class="bible-card-text"><div class="bible-card-title">Edición Personal SentiPiel Jardín Morado</div><div class="bible-card-store">Amazon México</div></div><div class="bible-card-arrow">→</div></a>
+      <a href="https://www.amazon.com.mx/Santa-Biblia-Edici%C3%B3n-Referencias-Grande/dp/149648102X" target="_blank" rel="noopener" class="bible-card"><svg class="bible-card-icon" viewBox="0 0 64 48" width="20" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M32 8C27 4 18 2 4 3v34c14-1 23 1 28 5 5-4 14-6 28-5V3c-14-1-23 1-28 5z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M32 8v34" stroke="currentColor" stroke-width="3"/></svg><div class="bible-card-text"><div class="bible-card-title">Edición Referencia Ultrafina SentiPiel Azul con Índice</div><div class="bible-card-store">Amazon México</div></div><div class="bible-card-arrow">→</div></a>
+      <a href="https://www.amazon.com.mx" target="_blank" rel="noopener" class="bible-card"><svg class="bible-card-icon" viewBox="0 0 64 48" width="20" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M32 8C27 4 18 2 4 3v34c14-1 23 1 28 5 5-4 14-6 28-5V3c-14-1-23 1-28 5z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M32 8v34" stroke="currentColor" stroke-width="3"/></svg><div class="bible-card-text"><div class="bible-card-title">Edición Referencia Ultrafina SentiPiel Café Claro con Índice</div><div class="bible-card-store">Amazon México</div></div><div class="bible-card-arrow">→</div></a>
+      <a href="https://www.mercadolibre.com.mx/santa-biblia-letra-grande-ntv-edicion-de-referencia-ultrafina-imitacion-crema-flores-de-ntv-vol-1-editorial-tyndalle-tapa-blanda-en-espanol-2022/p/MLM49703653" target="_blank" rel="noopener" class="bible-card"><svg class="bible-card-icon" viewBox="0 0 64 48" width="20" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M32 8C27 4 18 2 4 3v34c14-1 23 1 28 5 5-4 14-6 28-5V3c-14-1-23 1-28 5z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M32 8v34" stroke="currentColor" stroke-width="3"/></svg><div class="bible-card-text"><div class="bible-card-title">Edición Referencia Ultrafina Flores Crema</div><div class="bible-card-store">Mercado Libre México</div></div><div class="bible-card-arrow">→</div></a>
+      <a href="https://www.buscalibre.com.mx/libro-santa-biblia-ntv-edicion-personal-letra-grande/9781496479341/p/54464647" target="_blank" rel="noopener" class="bible-card"><svg class="bible-card-icon" viewBox="0 0 64 48" width="20" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M32 8C27 4 18 2 4 3v34c14-1 23 1 28 5 5-4 14-6 28-5V3c-14-1-23 1-28 5z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M32 8v34" stroke="currentColor" stroke-width="3"/></svg><div class="bible-card-text"><div class="bible-card-title">Edición Personal Cubierta Clásica Letra Grande</div><div class="bible-card-store">Buscalibre México</div></div><div class="bible-card-arrow">→</div></a>
+      <a href="https://www.buscalibre.com.mx/libro-santa-biblia-ntv-edicion-compacta-letra-grande/9781496428431/p/50008812" target="_blank" rel="noopener" class="bible-card"><svg class="bible-card-icon" viewBox="0 0 64 48" width="20" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M32 8C27 4 18 2 4 3v34c14-1 23 1 28 5 5-4 14-6 28-5V3c-14-1-23 1-28 5z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M32 8v34" stroke="currentColor" stroke-width="3"/></svg><div class="bible-card-text"><div class="bible-card-title">Edición Compacta Letra Grande Canto Dorado</div><div class="bible-card-store">Buscalibre México</div></div><div class="bible-card-arrow">→</div></a>
+      <a href="https://www.libreriamaranatha.com/articulo/biblia-referencia-ultra-fina-letra-grande-ntv-azul/" target="_blank" rel="noopener" class="bible-card"><svg class="bible-card-icon" viewBox="0 0 64 48" width="20" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M32 8C27 4 18 2 4 3v34c14-1 23 1 28 5 5-4 14-6 28-5V3c-14-1-23 1-28 5z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M32 8v34" stroke="currentColor" stroke-width="3"/></svg><div class="bible-card-text"><div class="bible-card-title">Edición Referencia Ultrafina SentiPiel Azul</div><div class="bible-card-store">Librería Maranatha</div></div><div class="bible-card-arrow">→</div></a>
+      <a href="https://librerialevitico.com/collections/nueva-traduccion-viviente-ntv" target="_blank" rel="noopener" class="bible-card"><svg class="bible-card-icon" viewBox="0 0 64 48" width="20" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M32 8C27 4 18 2 4 3v34c14-1 23 1 28 5 5-4 14-6 28-5V3c-14-1-23 1-28 5z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M32 8v34" stroke="currentColor" stroke-width="3"/></svg><div class="bible-card-text"><div class="bible-card-title">Edición Manual SentiPiel Color Gris</div><div class="bible-card-store">Librería Levítico</div></div><div class="bible-card-arrow">→</div></a>
+    </div>
+
+    <div class="online-reading-card reveal reveal-delay-1">
+      <div class="online-reading-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+      <div class="online-reading-text">
+        <h3>¿No puedes comprarla aún? Lee online gratis.</h3>
+        <p>La intimidad con Dios se crea en lo profundo con el Espíritu Santo, y el sacrificio de Cristo nos ha dado el precioso regalo de mantener una relación directa con nuestro Creador.<br><br>Antes de leer, pide la comisión y dirección de Dios a través de su precioso Espíritu.</p>
+        <a href="https://www.bible.com/es/bible/127/MAT.1.NTV" target="_blank" rel="noopener" class="btn btn-bible">Leer la Biblia NTV Online</a>
+      </div>
+    </div>
+
+    <div class="app-section reveal">
+      <h3 class="app-title">Lleva la Palabra contigo</h3>
+      <p class="app-sub">La aplicación YouVersion te permite leer la Biblia en cualquier momento y lugar, con planes de lectura, versículos del día y mucho más.</p>
+      <div class="app-buttons">
+        <a href="https://apps.apple.com/mx/app/biblia/id282935706" target="_blank" rel="noopener" class="app-btn app-btn-ios">
+          <svg class="app-btn-icon" viewBox="0 0 24 24" fill="#fff"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.014-.07-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.652.95 3.558.95.865 0 2.21-1.01 3.85-1.01.622 0 2.86.06 4.343 2.18-.114.07-2.583 1.51-2.583 4.6 0 3.57 3.135 4.83 3.28 4.88z"/></svg>
+          <div class="app-btn-label"><span class="app-btn-small">Descargar en</span><span class="app-btn-name">App Store</span></div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.sirma.mobile.bible.android" target="_blank" rel="noopener" class="app-btn app-btn-android">
+          <svg class="app-btn-icon" viewBox="0 0 24 24" fill="#06200f"><path d="M3.6 2.6 13.5 12l-9.9 9.4c-.4-.2-.6-.6-.6-1.1V3.7c0-.5.2-.9.6-1.1zm10.7 10.3 2.6 2.6-12 6.9 9.4-9.5zm0-1.8-9.4-9.5 12 6.9-2.6 2.6zm1.2 1.2 2.9-1.7c.7.4 1.2 1.1 1.2 2 0 .9-.5 1.6-1.2 2l-2.9-1.7 1.4-1.3-1.4-1.3z"/></svg>
+          <div class="app-btn-label"><span class="app-btn-small">Disponible en</span><span class="app-btn-name">Google Play</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Ekklesia <span class="brand-mx fire-gradient-text">Mx</span> · «Mas a todos los que le recibieron, les dio potestad de ser hechos hijos de Dios.» — Juan 1:12</footer>
+
+<script>window.EKKLESIA_TRACK = { src:'audio/palabra-tema.mp3', volume:0.16 };</script>
+<script src="assets/app.js"></script>
+</body>
+</html>

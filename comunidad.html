@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comunidad — EkklesiaMx</title>
+<meta name="description" content="El camino no se recorre solo. Únete a la comunidad de discípulos de EkklesiaMx.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+.page-hero{min-height:38vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:160px 24px 40px;overflow:hidden;}
+.page-hero-accent{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:520px;height:340px;border-radius:50%;background:radial-gradient(ellipse,rgba(37,211,102,.18),transparent 70%);filter:blur(30px);pointer-events:none;}
+
+.section-comunidad{text-align:center;}
+.comunidad-icon{width:74px;height:74px;border-radius:50%;background:#25D366;margin:0 auto 26px;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 36px rgba(37,211,102,.3);}
+.comunidad-icon svg{width:32px;height:32px;fill:#06200f;}
+
+.section-oracion{background:var(--pearl);}
+.oracion-card{max-width:640px;margin:0 auto;background:var(--navy);border-radius:var(--radius-lg);padding:56px 48px;text-align:center;box-shadow:0 28px 64px rgba(0,0,0,.4);border:1px solid rgba(254,126,60,.12);}
+.oracion-icon{width:56px;height:56px;border-radius:50%;background:rgba(254,126,60,.15);margin:0 auto 22px;display:flex;align-items:center;justify-content:center;}
+.oracion-icon svg{width:24px;height:24px;stroke:var(--burnt);}
+.oracion-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:30px;color:var(--cream);margin-bottom:6px;text-align:center;}
+.oracion-text{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(19px,3vw,24px);line-height:1.7;color:var(--cream);margin:28px 0 36px;text-align:center;}
+
+.section-final{text-align:center;position:relative;overflow:hidden;padding-bottom:140px;}
+.final-glow{position:absolute;bottom:-220px;left:50%;transform:translateX(-50%);width:680px;height:680px;border-radius:50%;
+  background:radial-gradient(circle, rgba(254,126,60,.22), rgba(14,104,115,.14) 55%, transparent 75%);filter:blur(50px);pointer-events:none;}
+.final-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;position:relative;z-index:2;margin-top:8px;}
+
+@media(max-width:760px){.oracion-card{padding:42px 28px;}.final-ctas{flex-direction:column;align-items:center;}}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- PESTAÑA-ÍNDICE EN LA ORILLA SUPERIOR -->
+<button id="indexPull" aria-label="Mostrar índice de secciones" data-hover></button>
+<nav id="indexPanel" aria-label="Índice de secciones">
+  <a href="index.html" class="index-panel-link">Inicio</a>
+  <a href="identidad.html" class="index-panel-link">Identidad</a>
+  <a href="musica.html" class="index-panel-link">Música</a>
+  <a href="palabra.html" class="index-panel-link">Palabra</a>
+  <a href="comunidad.html" class="index-panel-link">Comunidad</a>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay">
+  <nav class="menu-nav" role="navigation" aria-label="Menú principal">
+    <a href="index.html"><span class="menu-dot"></span>Inicio</a>
+    <a href="identidad.html"><span class="menu-dot"></span>Identidad</a>
+    <a href="musica.html"><span class="menu-dot"></span>Música</a>
+    <a href="palabra.html"><span class="menu-dot"></span>Palabra</a>
+    <a href="comunidad.html"><span class="menu-dot"></span>Comunidad</a>
+  </nav>
+</div>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-brand">Ekklesia <span class="brand-mx fire-gradient-text">Mx</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="identidad.html" class="nav-link">Identidad</a>
+    <a href="musica.html" class="nav-link">Música</a>
+    <a href="palabra.html" class="nav-link">Palabra</a>
+    <a href="comunidad.html" class="nav-link">Comunidad</a>
+  </div>
+  <div class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="fire-waves"><span class="fw3"></span></div>
+  <div class="container reveal" style="position:relative;z-index:2;">
+    <span class="eyebrow">Únete a la comunidad</span>
+    <h1 class="title-xl">El camino<br>no se recorre solo.</h1>
+  </div>
+</section>
+
+<!-- COMUNIDAD WHATSAPP -->
+<section class="section-comunidad" id="comunidad">
+  <div class="container reveal">
+    <div class="comunidad-icon reveal-scale" data-once="false"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-1.7-.7-2.8-2.3-2.9-2.5-.1-.2 0-.4.1-.5.1-.1.5-.6.6-.8.1-.2 0-.4-.1-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.2-.6.5-.2.4-.7 1.1-.7 2.2 0 1.1.8 2.2 1 2.4.1.2 1.9 2.9 4.6 4 2.7 1.1 2.7.7 3.2.7.5 0 1.5-.6 1.7-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.5-.3z"/></svg></div>
+    <h2 class="title-lg" style="text-align:center;max-width:520px;margin:0 auto 20px;">Caminantes<br>creciendo juntos.</h2>
+    <p class="body-text" style="text-align:center;margin:0 auto 40px;max-width:480px;">Una comunidad de caminantes hambrientos de la Palabra, creciendo juntos en Cristo.</p>
+    <div class="verse-block reveal-glow" data-once="false" style="max-width:560px;margin:0 auto 40px;text-align:left;">
+      <p class="verse-text">«Y considerémonos unos a otros para estimularnos al amor y a las buenas obras; no dejando de congregarnos...»</p>
+      <span class="verse-ref">Hebreos 10:24–25</span>
+    </div>
+    <a href="https://chat.whatsapp.com/DZ5nHmxozEn42pV8tonkN2?mode=gi_t" target="_blank" rel="noopener" class="btn btn-green">Unirme al grupo de WhatsApp</a>
+  </div>
+</section>
+
+<!-- ORACIÓN -->
+<section class="section-oracion" id="oracion">
+  <div class="container">
+    <div class="oracion-card reveal">
+      <div class="oracion-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-9C.5 7.5 3 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21 4 23.5 7.5 21.5 12 19 16.65 12 21 12 21z"/></svg></div>
+      <p class="eyebrow" style="text-align:center;">Oración de Entrega</p>
+      <h3 class="oracion-title">Comienza tu camino</h3>
+      <p class="oracion-text">Jesús,<br>reconozco que me amas,<br>me diseñaste y moriste por mí.<br><br>Hoy te recibo como Señor y Salvador.<br>Amén.</p>
+      <div class="verse-block" style="margin-bottom:36px;text-align:left;"><p class="verse-text">«Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí.»</p><span class="verse-ref">Juan 14:6</span></div>
+      <a href="https://chat.whatsapp.com/DZ5nHmxozEn42pV8tonkN2?mode=gi_t" target="_blank" rel="noopener" class="btn btn-primary">He decidido seguir a Cristo</a>
+    </div>
+  </div>
+</section>
+
+<!-- QUIÉN SOY completo -->
+<section id="quien-soy">
+  <div class="container reveal">
+    <span class="eyebrow">Una nota personal</span>
+    <h2 class="title-lg">No soy teólogo.<br><span class="accent">Soy caminante.</span></h2>
+    <div class="body-text" style="max-width:680px;font-size:17px;">
+      <p>No vengo con títulos ni credenciales religiosas. Soy un hijo más de Dios, redimido a través de Cristo, que sigue aprendiendo, fallando y levantándose. Compartes este camino con alguien que conoce las caídas y la gracia que las cubre.</p><br>
+      <p><em style="color:var(--peach);">«Id y haced discípulos a todas las naciones.»</em></p><br>
+      <p>Este espacio no es de un experto — es de un caminante que encontró el Camino y quiere que tú también lo encuentres.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section-final" id="final">
+  <div class="fire-waves" style="opacity:.65;"><span class="fw3"></span></div>
+  <div class="final-glow"></div>
+  <div class="container reveal" style="position:relative;z-index:2;">
+    <span class="eyebrow">El inicio de una nueva historia</span>
+    <h2 class="title-xl">Ekklesia&nbsp;Mx</h2>
+    <p class="body-text" style="margin:0 auto 48px;max-width:540px;">Hoy puede ser el inicio de una nueva historia. No camines solo. Camina con Aquel que es el Camino, la Verdad y la Vida.</p>
+    <div class="final-ctas">
+      <a href="https://open.spotify.com/intl-es/track/3nOjFj0WWbsci9foo3o2tk" target="_blank" rel="noopener" class="btn btn-primary">▶ Escuchar en Spotify</a>
+      <a href="https://youtube.com/@cronicasdeuncaminante-japm" target="_blank" rel="noopener" class="btn btn-red">Ver enseñanzas</a>
+      <a href="https://chat.whatsapp.com/DZ5nHmxozEn42pV8tonkN2?mode=gi_t" target="_blank" rel="noopener" class="btn btn-green">Unirme al WhatsApp</a>
+      <a href="identidad.html" class="btn btn-outline">✝ Descubrir mi identidad</a>
+    </div>
+  </div>
+</section>
+
+<footer>Ekklesia <span class="brand-mx fire-gradient-text">Mx</span> · «Mas a todos los que le recibieron, les dio potestad de ser hechos hijos de Dios.» — Juan 1:12</footer>
+
+<script>window.EKKLESIA_TRACK = { src:'audio/comunidad-tema.mp3', volume:0.18 };</script>
+<script src="assets/app.js"></script>
+</body>
+</html>
